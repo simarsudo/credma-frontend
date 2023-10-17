@@ -1,12 +1,13 @@
 import * as Form from "@radix-ui/react-form";
 import { Link } from "react-router-dom";
 import PageWrapper from "../components/wrappers/PageWrapper";
+import FormWrapper from "../components/wrappers/FormWrapper";
 
 function Login() {
     return (
         <PageWrapper>
             <div className="flex w-full grow flex-col items-center justify-center">
-                <div className="flex w-full flex-col gap-14 border bg-black px-2 py-8 md:w-[28rem] md:px-6 md:py-16">
+                <FormWrapper>
                     <h1 className="text-center text-4xl font-semibold">
                         Welcome Back
                     </h1>
@@ -26,7 +27,7 @@ function Login() {
                             </div>
                             <Form.Control asChild>
                                 <input
-                                    className="text-gray-800 h-8 w-full"
+                                    className="text-gray-800 h-8 w-full md:w-[22rem]"
                                     type="email"
                                     required
                                 />
@@ -47,7 +48,7 @@ function Login() {
                             </div>
                             <Form.Control asChild>
                                 <input
-                                    className="text-gray-800 h-8 w-full"
+                                    className="text-gray-800 h-8 w-full md:w-[22rem]"
                                     type="password"
                                     required
                                 />
@@ -62,7 +63,7 @@ function Login() {
                             </Form.Submit>
                         </div>
                     </Form.Root>
-                </div>
+                </FormWrapper>
                 <Link to="/signup" className="mt-2 text-center">
                     Don't have an account?
                 </Link>

@@ -1,6 +1,7 @@
 import { Dispatch, FormEvent, SetStateAction } from "react";
 import * as Form from "@radix-ui/react-form";
 import { Link } from "react-router-dom";
+import FormWrapper from "../wrappers/FormWrapper";
 
 type Props = {
     setSection: Dispatch<SetStateAction<number>>;
@@ -14,10 +15,10 @@ const Section1 = (props: Props) => {
 
     return (
         <div>
-            <div className="flex w-full flex-col gap-14 border-2 px-2 py-8 md:w-96 md:py-12">
+            <FormWrapper>
                 <Form.Root
                     onSubmit={(e) => onSubmitEvent(e)}
-                    className="flex h-full flex-col gap-6 p-2"
+                    className="flex h-full flex-col gap-6 p-2 md:max-w-fit"
                 >
                     <h1 className="text-center text-4xl font-semibold">
                         Create Account
@@ -34,7 +35,7 @@ const Section1 = (props: Props) => {
                         </div>
                         <Form.Control asChild>
                             <input
-                                className="h-8 w-full text-gray-800"
+                                className="h-8 w-full text-black md:w-[22rem]"
                                 type="email"
                                 required
                             />
@@ -52,7 +53,7 @@ const Section1 = (props: Props) => {
                         </div>
                         <Form.Control asChild>
                             <input
-                                className="h-8 w-full text-gray-800"
+                                className="h-8 w-full text-black md:w-[22rem]"
                                 type="password"
                                 required
                             />
@@ -67,7 +68,7 @@ const Section1 = (props: Props) => {
                         </div>
                         <Form.Control asChild>
                             <input
-                                className="h-8 w-full text-gray-800"
+                                className="h-8 w-full text-black md:w-[22rem]"
                                 type="password"
                                 required
                             />
@@ -77,7 +78,7 @@ const Section1 = (props: Props) => {
                         next
                     </button>
                 </Form.Root>
-            </div>
+            </FormWrapper>
             <div className="mt-2 text-center">
                 <Link to="/login">Already have an account</Link>
             </div>

@@ -1,5 +1,6 @@
 import * as Form from "@radix-ui/react-form";
 import { Dispatch, FormEvent, SetStateAction, useRef, useState } from "react";
+import FormWrapper from "../wrappers/FormWrapper";
 
 type Props = { setSection: Dispatch<SetStateAction<number>> };
 
@@ -32,7 +33,7 @@ const Section3 = (props: Props) => {
 
     return (
         <div>
-            <div className="flex w-full flex-col gap-14 border-2 px-2 py-8 md:w-96 md:py-12">
+            <FormWrapper>
                 <Form.Root
                     onSubmit={(e) => onSubmitEvent(e)}
                     className="flex h-full flex-col gap-6 p-2"
@@ -51,7 +52,7 @@ const Section3 = (props: Props) => {
                             <Form.Control asChild>
                                 <input
                                     ref={skillRef}
-                                    className="h-9 w-full text-gray-800"
+                                    className="h-8 w-full text-black md:w-[22rem]"
                                     type="text"
                                     required
                                 />
@@ -102,7 +103,7 @@ const Section3 = (props: Props) => {
                         </button>
                     </div>
                 </Form.Root>
-            </div>
+            </FormWrapper>
         </div>
     );
 };
