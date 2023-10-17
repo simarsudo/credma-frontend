@@ -71,11 +71,8 @@ const Section3 = (props: Props) => {
                         <ul className="flex flex-wrap gap-2">
                             {skills.map((skill, k) => {
                                 return (
-                                    <div className="relative">
-                                        <li
-                                            key={k}
-                                            className="rounded border py-2 pl-4 pr-5"
-                                        >
+                                    <div key={k} className="relative">
+                                        <li className="rounded border py-2 pl-4 pr-5">
                                             {skill}
                                         </li>
                                         <span
