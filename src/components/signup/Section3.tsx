@@ -88,15 +88,8 @@ const Section3 = (props: Props) => {
                     </div>
 
                     <div className="flex gap-2 self-end">
-                        <button
-                            className="max-w-min self-end border-2 px-8 py-1"
-                            onClick={() => props.setSection(2)}
-                            type="button"
-                        >
-                            back
-                        </button>
-                        <button className="max-w-min self-end border-2 px-8 py-1">
-                            next
+                        <button className="max-w-min self-end whitespace-nowrap border-2 px-4 py-1">
+                            Create Account
                         </button>
                     </div>
                 </Form.Root>
