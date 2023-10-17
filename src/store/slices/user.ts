@@ -40,13 +40,13 @@ export const UserSlice = createSlice({
             state.courseName = action.payload.courseName;
             state.field = action.payload.field;
         },
-        signupFormSection3Reducer: (state, action: PayloadAction<string[]>) => {
-            state.skills = action.payload;
+        signupFormSectionAddSkill: (state, action: PayloadAction<string>) => {
+            state.skills.push(action.payload);
         },
     },
 });
 
-export const { signupFormSection2Reducer, signupFormSection3Reducer } =
+export const { signupFormSection2Reducer, signupFormSectionAddSkill } =
     UserSlice.actions;
 
 export default UserSlice.reducer;
