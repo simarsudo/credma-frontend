@@ -8,6 +8,7 @@ export default {
             white: "#fff",
             highlight: "#FCCB33",
             "highlight-text": "#6FC68B",
+            warning: "#f43f5e",
         },
         extend: {},
     },
