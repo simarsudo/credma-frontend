@@ -26,12 +26,6 @@ const Section1 = (props: Props) => {
                     <Form.Field className="flex flex-col gap-1" name="email">
                         <div className="flex justify-between">
                             <Form.Label>Email</Form.Label>
-                            <Form.Message match="valueMissing">
-                                Please enter your email
-                            </Form.Message>
-                            <Form.Message match="typeMismatch">
-                                Please enter a valid email
-                            </Form.Message>
                         </div>
                         <Form.Control asChild>
                             <input
@@ -40,24 +34,43 @@ const Section1 = (props: Props) => {
                                 required
                             />
                         </Form.Control>
+                        <div>
+                            <Form.Message match="valueMissing">
+                                <p className="text-warning">
+                                    Please enter your email
+                                </p>
+                            </Form.Message>
+                            <Form.Message match="typeMismatch">
+                                <p className="text-warning">
+                                    Please enter a valid email
+                                </p>
+                            </Form.Message>
+                        </div>
                     </Form.Field>
                     <Form.Field className="flex flex-col gap-1" name="password">
                         <div className="flex justify-between">
                             <Form.Label>Password</Form.Label>
-                            <Form.Message match="valueMissing">
-                                Please enter your password
-                            </Form.Message>
-                            <Form.Message match="tooShort">
-                                Password must be atleast 8 characters
-                            </Form.Message>
                         </div>
                         <Form.Control asChild>
                             <input
                                 className="h-8 w-full text-black md:w-[22rem]"
+                                minLength={8}
                                 type="password"
                                 required
                             />
                         </Form.Control>
+                        <div>
+                            <Form.Message match="valueMissing">
+                                <p className="text-warning">
+                                    Please enter your password
+                                </p>
+                            </Form.Message>
+                            <Form.Message match="tooShort">
+                                <p className="text-warning">
+                                    Password must be atleast 8 characters
+                                </p>
+                            </Form.Message>
+                        </div>
                     </Form.Field>
                     <Form.Field className="flex flex-col gap-1" name="password">
                         <div className="flex justify-between">
@@ -69,10 +82,23 @@ const Section1 = (props: Props) => {
                         <Form.Control asChild>
                             <input
                                 className="h-8 w-full text-black md:w-[22rem]"
+                                minLength={8}
                                 type="password"
                                 required
                             />
                         </Form.Control>
+                        <div>
+                            <Form.Message match="valueMissing">
+                                <p className="text-warning">
+                                    Please enter your password
+                                </p>
+                            </Form.Message>
+                            <Form.Message match="tooShort">
+                                <p className="text-warning">
+                                    Password must be atleast 8 characters
+                                </p>
+                            </Form.Message>
+                        </div>
                     </Form.Field>
                     <button className="max-w-min self-end border-2 px-8 py-1">
                         next
