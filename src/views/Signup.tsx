@@ -9,9 +9,11 @@ function Signup() {
 
     return (
         <PageWrapper>
-            {section === 1 && <Section1 setSection={setSection} />}
-            {section === 2 && <Section2 setSection={setSection} />}
-            {section === 3 && <Section3 setSection={setSection} />}
+            <div className="flex w-full grow flex-col items-center justify-center">
+                {section === 1 && <Section1 setSection={setSection} />}
+                {section === 2 && <Section2 setSection={setSection} />}
+                {section === 3 && <Section3 setSection={setSection} />}
+            </div>
         </PageWrapper>
     );
 }
