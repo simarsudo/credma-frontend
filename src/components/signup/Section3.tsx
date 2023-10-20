@@ -88,7 +88,16 @@ const Section3 = (props: Props) => {
                     </div>
 
                     <div className="flex gap-2 self-end">
-                        <button className="max-w-min self-end whitespace-nowrap border-2 px-4 py-1">
+                        <button
+                            onClick={() => props.setSection(2)}
+                            className="max-w-min self-end whitespace-nowrap border-2 px-4 py-1"
+                        >
+                            back
+                        </button>
+                        <button
+                            type="submit"
+                            className="max-w-min self-end whitespace-nowrap border-2 px-4 py-1"
+                        >
                             Create Account
                         </button>
                     </div>
