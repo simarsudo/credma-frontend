@@ -2,7 +2,7 @@ import * as Form from "@radix-ui/react-form";
 import { Dispatch, FormEvent, SetStateAction, useRef } from "react";
 import FormWrapper from "../wrappers/FormWrapper";
 import { signupFormSection2Reducer } from "../../store/slices/user";
-import { useAppDispatch } from "../../store/hooks";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 
 type Props = { setSection: Dispatch<SetStateAction<number>> };
 
@@ -12,17 +12,38 @@ const Section2 = (props: Props) => {
     const collegeNameRef = useRef<HTMLInputElement>(null);
     const courseNameRef = useRef<HTMLInputElement>(null);
     const fieldRef = useRef<HTMLInputElement>(null);
+    const userFormData = useAppSelector((state) => state.User);
 
     const onSubmitEvent = (e: FormEvent<HTMLFormElement>) => {
-        console.log(
-            nameRef.current?.value,
-            collegeNameRef.current?.value,
-            courseNameRef.current?.value,
-            fieldRef.current?.value,
-        );
         e.preventDefault();
+
+        const name = nameRef.current?.value;
+        const collegeName = collegeNameRef.current?.value;
+        const courseName = courseNameRef.current?.value;
+        const field = fieldRef.current?.value;
+
+        if (
+            name &&
+            name.length >= 3 &&
+            collegeName &&
+            collegeName.length >= 3 &&
+            courseName &&
+            courseName.length >= 3 &&
+            field &&
+            field.length >= 2
+        ) {
+            console.log("rabn");
+            dispatch(
+                signupFormSection2Reducer({
+                    name,
+                    collegeName,
+                    courseName,
+                    field,
+                }),
+            );
+        }
+
         props.setSection(3);
-        fetch("bjbkdwa/jkdawbk");
     };
 
     return (
@@ -43,6 +64,7 @@ const Section2 = (props: Props) => {
                             <Form.Control asChild>
                                 <input
                                     ref={nameRef}
+                                    defaultValue={userFormData.name}
                                     minLength={3}
                                     className="h-8 w-full text-black md:w-[22rem]"
                                     type="text"
@@ -72,6 +94,7 @@ const Section2 = (props: Props) => {
                             <Form.Control asChild>
                                 <input
                                     ref={collegeNameRef}
+                                    defaultValue={userFormData.courseName}
                                     minLength={3}
                                     className="h-8 w-full text-black md:w-[22rem]"
                                     type="text"
@@ -101,6 +124,7 @@ const Section2 = (props: Props) => {
                             <Form.Control asChild>
                                 <input
                                     ref={courseNameRef}
+                                    defaultValue={userFormData.courseName}
                                     minLength={3}
                                     className="h-8 w-full text-black md:w-[22rem]"
                                     type="text"
@@ -125,6 +149,7 @@ const Section2 = (props: Props) => {
                             <Form.Control asChild>
                                 <input
                                     ref={fieldRef}
+                                    defaultValue={userFormData.field}
                                     className="h-8 w-full text-black md:w-[22rem]"
                                     type="text"
                                     required
@@ -147,7 +172,10 @@ const Section2 = (props: Props) => {
                         >
                             back
                         </button>
-                        <button className="max-w-min self-end border-2 px-8 py-1">
+                        <button
+                            type="submit"
+                            className="max-w-min self-end border-2 px-8 py-1"
+                        >
                             next
                         </button>
                     </div>
