@@ -94,7 +94,7 @@ const Section2 = (props: Props) => {
                             <Form.Control asChild>
                                 <input
                                     ref={collegeNameRef}
-                                    defaultValue={userFormData.courseName}
+                                    defaultValue={userFormData.collegeName}
                                     minLength={3}
                                     className="h-8 w-full text-black md:w-[22rem]"
                                     type="text"
