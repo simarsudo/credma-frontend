@@ -43,10 +43,19 @@ export const UserSlice = createSlice({
         signupFormSectionAddSkill: (state, action: PayloadAction<string>) => {
             state.skills.push(action.payload);
         },
+        signupFormSectionRemoveSkill: (
+            state,
+            action: PayloadAction<number>,
+        ) => {
+            state.skills.splice(action.payload, 1);
+        },
     },
 });
 
-export const { signupFormSection2Reducer, signupFormSectionAddSkill } =
-    UserSlice.actions;
+export const {
+    signupFormSection2Reducer,
+    signupFormSectionAddSkill,
+    signupFormSectionRemoveSkill,
+} = UserSlice.actions;
 
 export default UserSlice.reducer;

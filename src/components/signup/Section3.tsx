@@ -1,12 +1,18 @@
 import * as Form from "@radix-ui/react-form";
-import { Dispatch, FormEvent, SetStateAction, useRef, useState } from "react";
+import { Dispatch, FormEvent, SetStateAction, useState } from "react";
 import FormWrapper from "../wrappers/FormWrapper";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import {
+    signupFormSectionAddSkill,
+    signupFormSectionRemoveSkill,
+} from "../../store/slices/user";
 
 type Props = { setSection: Dispatch<SetStateAction<number>> };
 
 const Section3 = (props: Props) => {
-    const [skills, setSkills] = useState<string[]>([]);
-    const skillRef = useRef<HTMLInputElement>(null);
+    const [skill, setSkill] = useState("");
+    const skills = useAppSelector((state) => state.User.skills);
+    const dispatch = useAppDispatch();
 
     const onSubmitEvent = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -14,20 +20,13 @@ const Section3 = (props: Props) => {
     };
 
     const removeSkill = (index: number) => {
-        setSkills((prev) => {
-            const temp = [...prev];
-            temp.splice(index, 1);
-            return temp;
-        });
+        dispatch(signupFormSectionRemoveSkill(index));
     };
 
     const addSkill = () => {
-        if (skillRef.current && skillRef.current.value.length > 0) {
-            setSkills((prev) => {
-                const temp = [...prev];
-                temp.push(skillRef.current!.value);
-                return temp;
-            });
+        if (skill.length > 0) {
+            dispatch(signupFormSectionAddSkill(skill));
+            setSkill("");
         }
     };
 
@@ -51,7 +50,10 @@ const Section3 = (props: Props) => {
                         <div className="flex gap-2">
                             <Form.Control asChild>
                                 <input
-                                    ref={skillRef}
+                                    value={skill}
+                                    onChange={(
+                                        e: React.ChangeEvent<HTMLInputElement>,
+                                    ) => setSkill(e.target.value)}
                                     className="h-8 w-full text-black md:w-[22rem]"
                                     type="text"
                                     required
@@ -60,8 +62,8 @@ const Section3 = (props: Props) => {
                             <button
                                 type="button"
                                 onClick={addSkill}
-                                disabled={skillRef.current?.value.length === 0}
-                                className="max-w-min self-end border-2 px-8 py-1"
+                                disabled={skill.length === 0}
+                                className="max-w-min self-end border-2 px-8 py-1 disabled:cursor-not-allowed"
                             >
                                 Add
                             </button>
