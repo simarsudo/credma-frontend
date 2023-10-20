@@ -49,6 +49,13 @@ export const UserSlice = createSlice({
         ) => {
             state.skills.splice(action.payload, 1);
         },
+        signupFormCleanup: (state) => {
+            state.collegeName = "";
+            state.courseName = "";
+            state.field = "";
+            state.name = "";
+            state.skills = [];
+        },
     },
 });
 
@@ -56,6 +63,7 @@ export const {
     signupFormSection2Reducer,
     signupFormSectionAddSkill,
     signupFormSectionRemoveSkill,
+    signupFormCleanup,
 } = UserSlice.actions;
 
 export default UserSlice.reducer;
