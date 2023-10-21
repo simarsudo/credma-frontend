@@ -2,13 +2,13 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
     return (
-        <nav className="border-base/25 fixed left-0 top-0 flex w-screen items-center justify-between border-b bg-black px-3 py-4 text-white">
+        <nav className="fixed left-0 top-0 z-40 flex w-screen items-center justify-between border-b border-base/25 bg-black px-3 py-4 text-white">
             <div>
                 <h3 className="text-2xl font-semibold">Credma</h3>
             </div>
             <div>
                 <ul className="flex items-center">
-                    <li className="hover:text-highlight transition-colors">
+                    <li className="transition-colors hover:text-highlight">
                         <NavLink
                             className={({ isActive }) =>
                                 `px-2 ${
@@ -22,7 +22,7 @@ const Navbar = () => {
                             Login
                         </NavLink>
                     </li>
-                    <li className="hover:text-highlight transition-colors">
+                    <li className="transition-colors hover:text-highlight">
                         <NavLink
                             className={({ isActive }) =>
                                 `px-2 ${
@@ -36,7 +36,7 @@ const Navbar = () => {
                             Signup
                         </NavLink>
                     </li>
-                    <li className="hover:text-highlight transition-colors">
+                    <li className="transition-colors hover:text-highlight">
                         <NavLink
                             className={({ isActive }) =>
                                 `px-2 ${
