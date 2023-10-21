@@ -34,7 +34,7 @@ function Projects({}: Props) {
 
     return (
         <PageWrapper>
-            <div className="flex h-full w-full grow flex-col items-center gap-2 pt-4 md:m-auto md:w-[40rem] md:pt-0">
+            <div className="flex h-full w-full grow flex-col items-center gap-2 pt-4 md:m-auto md:w-[46rem] md:pt-0">
                 <div className="flex w-full justify-between gap-4">
                     <div className="flex items-center md:justify-center">
                         <input
