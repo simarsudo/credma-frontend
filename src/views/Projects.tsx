@@ -2,6 +2,7 @@ import { useState } from "react";
 import PageWrapper from "../components/wrappers/PageWrapper";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import DropDownFilters from "../components/projects/DropDownFilters";
+import ProjectListItem from "../components/projects/ProjectListItem";
 
 type Props = {};
 
@@ -12,6 +13,24 @@ function Projects({}: Props) {
         stipend: false,
         internship: false,
     });
+
+    const tempData = [
+        {
+            name: "Web App",
+            duration: "1 Month",
+            skills: ["Web Development", "Frontend", "Backend", "React"],
+        },
+        {
+            name: "Mobile App",
+            duration: "15 Days",
+            skills: ["Java", "Kotlin", "Swift"],
+        },
+        {
+            name: "Artificial Intelligence",
+            duration: "3 Month",
+            skills: ["Python", "PyTorch"],
+        },
+    ];
 
     return (
         <PageWrapper>
@@ -34,10 +53,28 @@ function Projects({}: Props) {
                         setSelectedPerks={setSelectedPerks}
                     />
                 </div>
-                <div className="h-full w-full grow border p-1">
-                    <div>
-                        <p>Project Name</p>
-                    </div>
+                <div className="mt-1 h-full max-h-[calc(100vh-11rem)] w-full grow overflow-y-scroll border-y border-base/25">
+                    <table className="w-full table-fixed">
+                        <thead className="sticky top-0 z-10 w-full bg-black">
+                            <tr className="flex justify-between border-y py-1 text-white/80">
+                                <th className="font-semibold">Name</th>
+                                <th className="font-semibold">Skills</th>
+                                <th className="font-semibold">Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody className="w-full grow divide-y divide-base/10 text-white">
+                            {tempData.map((data, k) => {
+                                return (
+                                    <ProjectListItem
+                                        key={k}
+                                        name={data.name}
+                                        duration={data.duration}
+                                        skills={data.skills}
+                                    />
+                                );
+                            })}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </PageWrapper>
