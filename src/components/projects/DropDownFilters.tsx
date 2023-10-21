@@ -30,7 +30,7 @@ const DropDownFilters = (props: Props) => {
                     <AdjustmentsHorizontalIcon className="mx-1 h-5 w-5" />
                 </DropdownMenu.Trigger>
                 <DropdownMenu.Portal>
-                    <DropdownMenu.Content className="mr-4 mt-2 w-48 rounded bg-white p-2 text-black md:mr-0">
+                    <DropdownMenu.Content className="z-30 mr-4 mt-2 w-48 rounded bg-white p-2 text-black md:mr-0">
                         <DropdownMenu.Label className="py-1 text-sm text-black/80">
                             Field
                         </DropdownMenu.Label>
