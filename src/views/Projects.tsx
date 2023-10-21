@@ -67,6 +67,7 @@ function Projects({}: Props) {
                                 return (
                                     <ProjectListItem
                                         key={k}
+                                        id={`${k}`}
                                         name={data.name}
                                         duration={data.duration}
                                         skills={data.skills}

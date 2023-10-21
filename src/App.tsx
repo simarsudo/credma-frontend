@@ -4,6 +4,7 @@ import Login from "./views/Login";
 import Signup from "./views/Signup";
 import NotFound404 from "./views/NotFound404";
 import Projects from "./views/Projects";
+import Project from "./views/Project";
 
 const CustomRoutes = createBrowserRouter([
     { path: "/", element: <Index /> },
@@ -13,6 +14,7 @@ const CustomRoutes = createBrowserRouter([
     },
     { path: "/signup", element: <Signup /> },
     { path: "/projects", element: <Projects /> },
+    { path: "/projects/:id", element: <Project /> },
     { path: "*", element: <NotFound404 /> },
 ]);
 
