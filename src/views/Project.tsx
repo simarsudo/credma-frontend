@@ -7,7 +7,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { BuildingOfficeIcon, TrophyIcon } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
-import useListToString from "../hooks/useListToString";
+// import useListToString from "../hooks/useListToString";
 
 const Project = () => {
     // const { id } = useParams();
@@ -23,7 +23,7 @@ const Project = () => {
             `,
     };
 
-    const skills = useListToString(fakeData.skills);
+    // const skills = useListToString(fakeData.skills);
 
     return (
         <PageWrapper>
@@ -71,7 +71,7 @@ const Project = () => {
                             })}
                         </ul>
                     </div>
-                    <h5 className="text-lg font-semibold text-base/90 underline">
+                    <h5 className="mt-6 text-lg font-semibold text-base/90 underline">
                         Description
                     </h5>
                     <p className="p-2 text-justify">{fakeData.description}</p>
