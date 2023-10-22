@@ -3,6 +3,8 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 // import type { RootState } from "../store";
 
 type User = {
+    token: string;
+    isAuthenticated: boolean;
     email: string;
     password: string;
     name: string;
@@ -13,6 +15,8 @@ type User = {
 };
 
 const initialState: User = {
+    token: "",
+    isAuthenticated: false,
     name: "",
     collegeName: "",
     email: "",
