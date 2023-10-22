@@ -1,5 +1,7 @@
+import PageWrapper from "../components/wrappers/PageWrapper";
+
 const StudentProfileSettings = () => {
-    return <div>StudentProfileSettings</div>;
+    return <PageWrapper>StudentProfileSettings</PageWrapper>;
 };
 
 export default StudentProfileSettings;
